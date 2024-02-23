@@ -1,0 +1,65 @@
+.animelist {
+    width: calc(100% - 90px);
+    min-height: 100vh;
+    height: 100%;
+    transition: width 0.5s;
+
+    &.shown {
+        width: calc(100% - 15%);
+    }
+
+    &__container {
+        width: 1140px;
+        height: 100%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+
+        h1 {
+            text-align: center;
+            padding: 50px 0;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 185px);
+        justify-content: center;
+        gap: 40px;
+        height: 100%;
+    }
+
+    &__item {
+        transition: 0.3s all;
+        text-decoration: none;
+
+        &:hover {
+            transform: scale(1.1);
+
+            /* stylelint-disable-next-line selector-class-pattern */
+            .animelist__item__title {
+                color: #4effee;
+            }
+        }
+
+        &__img {
+            img {
+                display: block;
+                width: 185px;
+                height: 265px;
+                border-radius: 12px;
+            }
+        }
+    
+        /* stylelint-disable-next-line no-descending-specificity */
+        &__title {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #fff;
+        }
+    }
+
+    &__bottom {
+        height: 15px;
+    }
+}

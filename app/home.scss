@@ -1,0 +1,35 @@
+.home {
+    width: calc(100% - 90px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: width 500ms;
+
+    &__title {
+        position: relative;
+        width: 100%;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        padding: 25px 0;
+
+        a {
+            position: absolute;
+            right: 8%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #fff;
+            opacity: 0.7;
+
+            &:hover {
+                color: #4effee;
+            }
+        }
+    }
+
+    &.shown {
+        width: calc(100% - 300px);
+    }
+}

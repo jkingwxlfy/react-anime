@@ -1,0 +1,111 @@
+.user {
+    width: calc(100% - 90px);
+    height: 100vh;
+    transition: 0.5s width;
+
+    &.shown {
+        width: calc(100% - 300px);
+    }
+
+    &__container {
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+        padding-top: 100px;
+    }
+
+    &__name {
+        padding-left: 6%;
+        font-size: 2rem;
+    }
+
+    &__types {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding-top: 50px;
+        font-size: 2rem;
+    }
+
+    &__type {
+        user-select: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border: 1px solid transparent;
+
+        &:hover {
+            color: #189bc3;
+        }
+
+        &.selected {
+            border: 1px solid #fff;
+            border-radius: 12px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 50px;
+        font-size: 1.5rem;
+        border: 1px solid #fff;
+        border-radius: 12px;
+        padding: 10px 15px;
+
+        &__item {
+            flex: 1;
+            padding: 0 50px;
+            text-align: center;
+        }
+
+        &__title {
+            flex: 5;
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        &__cover {
+            display: block;
+            width: 50px;
+        }
+    }
+
+    &__list {
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    &__listItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 15px 0;
+
+        &__title {
+            flex: 5;
+            text-align: left;
+            padding-left: 30px;
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+                color: #189bc3;
+                cursor: pointer;
+            }
+        }
+
+        span {
+            display: flex;
+            gap: 80px;
+        }
+
+        img {
+            display: block;
+            width: 50px;
+            height: 60px;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+.sidebar {
+    order: 2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    height: 100%;
+    width: 15%;
+    background-color: #000;
+    border-left: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 500ms;
+    transform: translateX(calc(100% - 90px));
+
+    &__title {
+        margin: 30px 0 50px;
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 1.5rem;
+            cursor: default;
+            text-transform: uppercase;
+        }
+
+        span {
+            &:hover {
+                color: #4effee;
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &__item {
+        margin-bottom: 25px;
+
+        &:hover {
+            color: #4effee;
+        }
+    }
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    ul li {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    ul li span {
+        font-size: 3.5rem;
+        user-select: none;
+        padding: 0 20px;
+    }
+
+    ul li &__link {
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover {
+            color: #4effee;
+        }
+    }
+
+    ul li p {
+        font-size: 1.5rem;
+        user-select: none;
+    }
+
+    &.shown {
+        transform: translateX(0%);
+    }
+}
