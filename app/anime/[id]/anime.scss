@@ -3,11 +3,11 @@
 
 .anime {
     position: relative;
-    
+
     &__container {
+        transition: 0.5s all;
         width: calc(100% - 90px);
         min-height: 100vh;
-        transition: 0.5s all;
 
         &.shown {
             width: calc(100% - 300px);
@@ -16,44 +16,44 @@
 
     &__cover {
         display: inline-block;
-        height: 400px;
         width: 100%;
+        height: 400px;
         user-select: none;
         pointer-events: none;
 
         &::after {
-            content: '';
             position: absolute;
             top: 0;
             left: 0;
+            background-color: rgba(0 0 0 / 30%);
             width: 100%;
             height: 100%;
-            background-color: rgba(0 0 0 / 30%);
+            content: '';
             pointer-events: none;
         }
-        
+
         img {
-            height: 100%;
             width: 100%;
+            height: 100%;
         }
     }
 
     &__title {
-        font-size: 1.5rem;
         padding-bottom: 20px;
         color: #4effee;
+        font-size: 1.5rem;
     }
 
     &__description {
         display: grid;
         grid-template-rows: 1fr;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-size: 1rem;
-        opacity: 0.8;
-        line-height: 1.5rem;
         transition: grid-template-rows 0.5s ease;
+        opacity: 0.8;
         margin-bottom: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5rem;
+        font-size: 1rem;
 
         &.above {
             grid-template-rows: 0.5fr;
@@ -65,13 +65,13 @@
     }
 
     &__header {
-        position: relative;
         display: flex;
-        
+        position: relative;
+
         img {
             margin-top: -125px;
-            height: 325px;
             width: 230px;
+            height: 325px;
         }
 
         &_right {
@@ -81,49 +81,49 @@
 
         &_left {
             &_input {
-                height: 50px;
                 display: flex;
-                justify-content: center;
-                align-items: center;
                 gap: 10px;
+                align-items: center;
+                justify-content: center;
                 padding-top: 15px;
+                height: 50px;
             }
         }
     }
 
     &__wrapper {
-        width: 70%;
-        height: 100%;
         margin: 0 auto;
         padding-bottom: 50px;
+        width: 70%;
+        height: 100%;
     }
 
     &__readmore {
         display: block;
         margin: 0 auto;
-        font-size: 1rem;
-        padding: 10px 5px;
-        background-color: #000;
-        color: #fff;
         outline: none;
-        border-radius: 16px;
         border: 0;
+        border-radius: 16px;
+        background-color: #000;
+        padding: 10px 5px;
+        color: #fff;
+        font-size: 1rem;
         font-weight: 400;
-
-        &.hidden {
-            display: none;
-        }
 
         &:hover {
             background-color: #595959;
+        }
+
+        &.hidden {
+            display: none;
         }
     }
 
     &__select {
         width: 100%;
         height: 100%;
-        font-size: 1rem;
         text-align: center;
+        font-size: 1rem;
     }
 
     &__checkbox {
@@ -131,35 +131,35 @@
             appearance: none;
 
             &:checked + span::before {
-                color: #f65489
+                color: #f65489;
             }
 
             &:hover + span::before {
-                color: #f65489
+                color: #f65489;
             }
         }
 
         span {
-            padding: 7px;
             border-radius: 6px;
             background-color: #189bc3;
             cursor: pointer;
+            padding: 7px;
             /* stylelint-disable-next-line no-descending-specificity */
             &::before {
+                color: #fff;
                 /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
                 font-family: fontAwesome;
-                content: "\f004";
                 font-size: 1rem;
-                color: #fff;
+                content: '\f004';
             }
         }
     }
 
     &__info {
-        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding-top: 50px;
+        width: 100%;
         font-size: 1.5rem;
 
         &__col {
@@ -180,16 +180,16 @@
         &__title {
             display: flex;
             justify-content: space-between;
+            padding-bottom: 50px;
             text-align: center;
             font-size: 1.7rem;
-            padding-bottom: 50px;
         }
 
         &__button {
             &:hover {
+                cursor: pointer;
                 color: #4effee;
                 user-select: none;
-                cursor: pointer;
             }
         }
 
@@ -207,8 +207,13 @@
 
         &__item {
             transition: 0.2s all;
-            color: #fff;
             text-decoration: none;
+            color: #fff;
+
+            &:hover {
+                cursor: pointer;
+                color: #4effee;
+            }
 
             &__title {
                 text-align: center;
@@ -216,18 +221,13 @@
 
             &__img {
                 padding-bottom: 15px;
-                
+
                 img {
                     display: block;
+                    border-radius: 12px;
                     width: 100%;
                     height: 300px;
-                    border-radius: 12px;
                 }
-            }
-
-            &:hover {
-                color: #4effee;
-                cursor: pointer;
             }
         }
     }

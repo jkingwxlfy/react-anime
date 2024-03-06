@@ -1,25 +1,25 @@
-"use client";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { useAppSelector } from "@/hooks/redux";
-import useSliderData from "@/hooks/useSliderData";
-import useObserver from "@/hooks/useObserver";
-import { useState, useRef, useEffect } from "react";
-import { redirect } from "next/navigation";
+'use client';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { useAppSelector } from '@/hooks/redux';
+import useSliderData from '@/hooks/useSliderData';
+import useObserver from '@/hooks/useObserver';
+import { useState, useRef, useEffect } from 'react';
+import { redirect } from 'next/navigation';
 
-import { Spiner, ErrorMessage } from "@/components/UI";
+import { Spiner, ErrorMessage } from '@/components/UI';
 
-import "./animelist.scss";
+import './animelist.scss';
 
 enum CategoryOfAnimeList {
-    POPULAR = "popular",
-    TRENDING = "trending",
+    POPULAR = 'popular',
+    TRENDING = 'trending',
 }
 
 const Anime: React.FC = () => {
     const searchParams = useSearchParams();
     const { isShownSidebar } = useAppSelector((state) => state.userSlice);
-    const category = searchParams.get("category");
+    const category = searchParams.get('category');
     const [offset, setOffset] = useState(0);
     const { popularAnime, trendingAnime, status } = useSliderData(offset, 20);
     const bottomBorder = useRef<HTMLDivElement | null>(null);
@@ -30,7 +30,7 @@ const Anime: React.FC = () => {
         category !== CategoryOfAnimeList.POPULAR &&
         category !== CategoryOfAnimeList.TRENDING
     ) {
-        redirect("/");
+        redirect('/');
     }
 
     useObserver(
@@ -53,12 +53,12 @@ const Anime: React.FC = () => {
     }
 
     return (
-        <section className={`animelist${isShownSidebar ? " shown" : ""}`}>
+        <section className={`animelist${isShownSidebar ? ' shown' : ''}`}>
             <div className="animelist__container">
                 <h1>
                     {category === CategoryOfAnimeList.POPULAR
-                        ? "Popular "
-                        : "Trending "}
+                        ? 'Popular '
+                        : 'Trending '}
                     Anime
                 </h1>
                 <div className="animelist__list">
@@ -75,7 +75,7 @@ const Anime: React.FC = () => {
                                 />
                             </div>
                             <div className="animelist__item__title">
-                                {item.title && typeof item.title !== "string"
+                                {item.title && typeof item.title !== 'string'
                                     ? item.title.english ||
                                       item.title.userPreferred
                                     : item.title}

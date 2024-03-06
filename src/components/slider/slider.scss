@@ -10,9 +10,9 @@
 
     &__container {
         display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 35px;
+        align-items: center;
+        justify-content: center;
     }
 
     &__wrapper {
@@ -21,10 +21,10 @@
     }
 
     &__inner {
-        width: 2300px;
         display: flex;
         gap: 30px;
         transition: 0.5s all;
+        width: 2300px;
     }
 
     &__slide {
@@ -32,22 +32,22 @@
 
         img {
             display: block;
+            border-radius: 12px;
             width: 230px;
             height: 290px;
-            border-radius: 12px;
         }
     }
 
     &__arrow {
         display: flex;
-        justify-content: center;
         align-items: center;
-        padding: 35px;
-        width: 60px;
-        height: 60px;
+        justify-content: center;
         border: 2px solid #fff;
         border-radius: 100%;
         cursor: pointer;
+        padding: 35px;
+        width: 60px;
+        height: 60px;
         user-select: none;
 
         span {
@@ -56,10 +56,10 @@
     }
 
     &__title {
-        text-align: center;
-        font-size: 1.3rem;
         padding-top: 15px;
-        text-overflow: ellipsis;
         height: 6rem;
+        text-align: center;
+        text-overflow: ellipsis;
+        font-size: 1.3rem;
     }
 }

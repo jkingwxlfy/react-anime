@@ -1,17 +1,17 @@
-"use client";
-import type { IAnimeResult } from "@consumet/extensions";
-import { useAppSelector } from "@/hooks/redux";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+'use client';
+import type { IAnimeResult } from '@consumet/extensions';
+import { useAppSelector } from '@/hooks/redux';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-import "./user.scss";
+import './user.scss';
 
 const User: React.FC = () => {
-    const options = ["all", "planning", "watching", "complete", "favorite"];
+    const options = ['all', 'planning', 'watching', 'complete', 'favorite'];
     const { isShownSidebar, userList } = useAppSelector(
         (state) => state.userSlice
     );
-    const [selectedList, setSelectedList] = useState<string>("all");
+    const [selectedList, setSelectedList] = useState<string>('all');
     const [anime, setAnime] = useState([] as IAnimeResult[]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const User: React.FC = () => {
             }
             return item;
         });
-        if (selectedList === "all") {
+        if (selectedList === 'all') {
             setAnime([
                 ...userList[0].list,
                 ...userList[1].list,
@@ -31,7 +31,7 @@ const User: React.FC = () => {
     }, [selectedList, userList]);
 
     return (
-        <section className={`user${isShownSidebar ? " shown" : ""}`}>
+        <section className={`user${isShownSidebar ? ' shown' : ''}`}>
             <div className="user__container">
                 <div className="user__name">JKINGWXLFY</div>
                 <div className="user__types">
@@ -39,7 +39,7 @@ const User: React.FC = () => {
                         <div
                             key={option}
                             className={`user__type${
-                                selectedList === option ? " selected" : ""
+                                selectedList === option ? ' selected' : ''
                             }`}
                             onClick={() => setSelectedList(option)}
                         >
@@ -62,7 +62,7 @@ const User: React.FC = () => {
                                 href={`anime/${item.id}`}
                                 className="user__listItem__title"
                             >
-                                {item.title && typeof item.title !== "string"
+                                {item.title && typeof item.title !== 'string'
                                     ? item.title.romaji
                                     : item.title}
                             </Link>

@@ -1,20 +1,20 @@
-"use client";
-import { useState, useRef } from "react";
-import { useAppSelector } from "@/hooks/redux";
-import useObserver from "@/hooks/useObserver";
-import useSearchData from "@/hooks/useSearchData";
+'use client';
+import { useState, useRef } from 'react';
+import { useAppSelector } from '@/hooks/redux';
+import useObserver from '@/hooks/useObserver';
+import useSearchData from '@/hooks/useSearchData';
 
-import Searchbar from "@/components/searchbar/Searchbar";
-import SearchList from "@/components/searchlist/SearchList";
-import SearchFilter from "@/components/searchfilter/SearchFilter";
-import { Spiner, ErrorMessage } from "@/components/UI";
+import Searchbar from '@/components/searchbar/Searchbar';
+import SearchList from '@/components/searchlist/SearchList';
+import SearchFilter from '@/components/searchfilter/SearchFilter';
+import { Spiner, ErrorMessage } from '@/components/UI';
 
-import "./search.scss";
+import './search.scss';
 
 const Search: React.FC = () => {
     const { isShownSidebar } = useAppSelector((state) => state.userSlice);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [searchQuery, setSearchQuery] = useState<string>('');
     const bottomBorder = useRef<HTMLDivElement | null>(null);
     const [offset, setOffset] = useState<number>(1);
     const { anime, status } = useSearchData(
@@ -48,7 +48,7 @@ const Search: React.FC = () => {
     }
 
     return (
-        <section className={`search${isShownSidebar ? " shown" : ""}`}>
+        <section className={`search${isShownSidebar ? ' shown' : ''}`}>
             <Searchbar onSearch={onSearch} />
             <SearchFilter
                 genres={selectedGenres}

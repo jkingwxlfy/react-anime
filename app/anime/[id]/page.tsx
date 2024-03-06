@@ -1,15 +1,15 @@
-"use client";
-import type { IAnimeInfo } from "@consumet/extensions";
-import { META } from "@consumet/extensions";
-import { useEffect, useState, useRef } from "react";
-import { useAppSelector, useAppDispatch } from "@/hooks/redux";
-import { addOneToList, setFavorite } from "@/store/reducers/userSlice";
-import type { TypeOfList } from "@/models/IUserList";
-import Link from "next/link";
+'use client';
+import type { IAnimeInfo } from '@consumet/extensions';
+import { META } from '@consumet/extensions';
+import { useEffect, useState, useRef } from 'react';
+import { useAppSelector, useAppDispatch } from '@/hooks/redux';
+import { addOneToList, setFavorite } from '@/store/reducers/userSlice';
+import type { TypeOfList } from '@/models/IUserList';
+import Link from 'next/link';
 
-import { Spiner, ErrorMessage } from "@/components/UI";
+import { Spiner, ErrorMessage } from '@/components/UI';
 
-import "./anime.scss";
+import './anime.scss';
 
 interface IAnimePageProps {
     params: {
@@ -33,13 +33,13 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
     const [isAbove, setIsAbove] = useState<boolean>(false);
     const dispatch = useAppDispatch();
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
-    const [episodeNextDate, setEpisodeNextDate] = useState<string>("");
+    const [episodeNextDate, setEpisodeNextDate] = useState<string>('');
     const [isHiddenRecommendations, setIsHiddenRecommendations] =
         useState<boolean>(true);
 
     useEffect(() => {
         userList.map((item) => {
-            if (item.name === "favorite") {
+            if (item.name === 'favorite') {
                 item.list.map((item) => {
                     if (item.id === params.id) {
                         setIsFavorite(true);
@@ -82,7 +82,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
 
             setEpisodeNextDate(
                 `Expected to be released in ${nextEpisodeDay} days ${
-                    episodes ? `${episodes} episode` : ""
+                    episodes ? `${episodes} episode` : ''
                 }`
             );
 
@@ -95,9 +95,9 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
 
         const isValidListValue = (value: string): value is TypeOfList => {
             return (
-                value === "complete" ||
-                value === "watching" ||
-                value === "planning"
+                value === 'complete' ||
+                value === 'watching' ||
+                value === 'planning'
             );
         };
 
@@ -126,7 +126,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                 <img src={anime.cover} alt="image of anime's cover" />
             </div>
             <div
-                className={`anime__container${isShownSidebar ? " shown" : ""}`}
+                className={`anime__container${isShownSidebar ? ' shown' : ''}`}
             >
                 <div className="anime__wrapper">
                     <div className="anime__header">
@@ -158,24 +158,24 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                         </div>
                         <div className="anime__header_right">
                             <div className="anime__title">
-                                {anime.title && typeof anime.title !== "string"
+                                {anime.title && typeof anime.title !== 'string'
                                     ? anime.title.romaji
                                     : anime.title}
                             </div>
 
                             <div
                                 className={`anime__description${
-                                    isWidenedDescription ? " widened" : ""
-                                }${isAbove ? " above" : ""}`}
+                                    isWidenedDescription ? ' widened' : ''
+                                }${isAbove ? ' above' : ''}`}
                                 ref={descriptionRef}
                             >
                                 <div
-                                    style={{ minHeight: "0" }}
+                                    style={{ minHeight: '0' }}
                                     dangerouslySetInnerHTML={{
                                         // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
                                         __html: anime.description?.replace(
                                             /<br> <br>/g,
-                                            "\n"
+                                            '\n'
                                         )!,
                                     }}
                                 >
@@ -185,7 +185,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
 
                             <button
                                 className={`anime__readmore${
-                                    !isAbove ? " hidden" : ""
+                                    !isAbove ? ' hidden' : ''
                                 }`}
                                 onClick={() =>
                                     setIsWidenedDescription(
@@ -202,7 +202,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                             <div className="anime__info__item">Episodes</div>
                             <div
                                 className={`anime__info__item ${
-                                    anime.status === "Completed" ? "hidden" : ""
+                                    anime.status === 'Completed' ? 'hidden' : ''
                                 }`}
                             >
                                 Next episode
@@ -220,7 +220,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                             </div>
                             <div
                                 className={`anime__info__item ${
-                                    anime.status === "Completed" ? "hidden" : ""
+                                    anime.status === 'Completed' ? 'hidden' : ''
                                 }`}
                             >
                                 {episodeNextDate}
@@ -229,7 +229,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                                 {anime.type}
                             </div>
                             <div className="anime__info__item">
-                                {anime.genres?.toString().replace(/,/g, ", ")}
+                                {anime.genres?.toString().replace(/,/g, ', ')}
                             </div>
                             <div className="anime__info__item">
                                 {anime.status}
@@ -251,13 +251,13 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                                 }
                             >
                                 {isHiddenRecommendations
-                                    ? "View all"
-                                    : "View less"}
+                                    ? 'View all'
+                                    : 'View less'}
                             </div>
                         </div>
                         <div
                             className={`anime__recommendations__container ${
-                                isHiddenRecommendations ? "" : "opened"
+                                isHiddenRecommendations ? '' : 'opened'
                             }`}
                         >
                             {anime.recommendations?.map((item) => {
@@ -276,7 +276,7 @@ const AnimePage: React.FC<IAnimePageProps> = ({ params }) => {
                                             </div>
                                             <div>
                                                 {item.title &&
-                                                typeof item.title !== "string"
+                                                typeof item.title !== 'string'
                                                     ? item.title.romaji
                                                     : item.title}
                                             </div>

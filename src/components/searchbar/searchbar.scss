@@ -1,9 +1,9 @@
 .searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &__input {
         position: relative;
@@ -22,12 +22,12 @@
 
     input {
         position: relative;
-        width: 100%;
-        font-size: 1.5rem;
-        padding: 5px 50px;
-        border-radius: 12px;
         outline: none;
         border: 3px solid #fff;
+        border-radius: 12px;
+        padding: 5px 50px;
+        width: 100%;
+        font-size: 1.5rem;
 
         &:focus {
             border: 3px solid #4effee;
@@ -35,17 +35,17 @@
     }
 
     button {
-        font-size: 1.5rem;
         margin-left: 15px;
-        padding: 10px 15px;
-        background-color: transparent;
         outline: none;
         border: 0;
         border-radius: 12px;
+        background-color: transparent;
+        padding: 10px 15px;
         color: #fff;
+        font-size: 1.5rem;
 
         &:hover {
-            background-color: #202020
+            background-color: #202020;
         }
     }
 }

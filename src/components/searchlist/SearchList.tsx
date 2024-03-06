@@ -1,7 +1,7 @@
-import type { IAnimeResult } from "@consumet/extensions";
-import Link from "next/link";
+import type { IAnimeResult } from '@consumet/extensions';
+import Link from 'next/link';
 
-import "./searchlist.scss";
+import './searchlist.scss';
 
 interface ISearchListProps {
     anime: IAnimeResult[];
@@ -24,12 +24,12 @@ const SearchList: React.FC<ISearchListProps> = ({ anime }) => {
                                 href={`/anime/${item.id}`}
                                 className="searchlist__title"
                             >
-                                {item.title && typeof item.title !== "string"
+                                {item.title && typeof item.title !== 'string'
                                     ? item.title.english
                                     : item.title}
                             </Link>
                             <div className="searchlist__alttitle">
-                                {item.title && typeof item.title !== "string"
+                                {item.title && typeof item.title !== 'string'
                                     ? item.title.native
                                     : item.title}
                             </div>

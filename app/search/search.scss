@@ -1,6 +1,6 @@
 .search {
-    width: calc(100% - 90px);
     transition: 0.5s width;
+    width: calc(100% - 90px);
 
     &.shown {
         width: calc(100% - 300px);
@@ -8,9 +8,9 @@
 
     &__list {
         display: flex;
-        width: 70%;
+        gap: 30px;
         margin: 0 auto;
         padding: 50px 30px;
-        gap: 30px;
+        width: 70%;
     }
 }

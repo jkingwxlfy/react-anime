@@ -1,9 +1,9 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-import type { IAnimeResult } from "@consumet/extensions";
+'use client';
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import type { IAnimeResult } from '@consumet/extensions';
 
-import "./slider.scss";
+import './slider.scss';
 
 interface ISliderProps {
     slides: IAnimeResult[];
@@ -53,7 +53,7 @@ const Slider: React.FC<ISliderProps> = ({ slides }) => {
                                 />
                                 <p className="slider__title">
                                     {item.title &&
-                                    typeof item.title !== "string"
+                                    typeof item.title !== 'string'
                                         ? item.title.romaji
                                         : item.title}
                                 </p>

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import "./searchfilter.scss";
+import './searchfilter.scss';
 
 interface ISearchFilterProps {
     setGenres: (genres: string[]) => void;
@@ -16,21 +16,21 @@ const SearchFilter: React.FC<ISearchFilterProps> = ({
     const [isOpened, setIsOpened] = useState<boolean>(true);
 
     const options = [
-        "Action",
-        "Adventure",
-        "Romance",
-        "Psychological",
-        "Drama",
-        "Comedy",
-        "Horror",
-        "Sports",
-        "Fantasy",
-        "Music",
-        "Mystery",
-        "Supernatural",
-        "Mecha",
-        "Sci-Fi",
-        "Thriller",
+        'Action',
+        'Adventure',
+        'Romance',
+        'Psychological',
+        'Drama',
+        'Comedy',
+        'Horror',
+        'Sports',
+        'Fantasy',
+        'Music',
+        'Mystery',
+        'Supernatural',
+        'Mecha',
+        'Sci-Fi',
+        'Thriller',
     ];
 
     const onSelectGenre = (
@@ -52,11 +52,11 @@ const SearchFilter: React.FC<ISearchFilterProps> = ({
 
     return (
         <section className="search-filter">
-            <div className={`search-filter__list${isOpened ? "" : " hidden"}`}>
+            <div className={`search-filter__list${isOpened ? '' : ' hidden'}`}>
                 <div className="search-filter__header">
                     <p>Genres</p>
                     <button onClick={() => setIsOpened(!isOpened)}>
-                        {isOpened ? "hide" : "open"}
+                        {isOpened ? 'hide' : 'open'}
                     </button>
                     <button onClick={onResetGenres}>reset all</button>
                 </div>

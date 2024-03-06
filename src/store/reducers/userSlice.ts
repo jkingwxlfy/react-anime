@@ -1,62 +1,68 @@
-import { createSlice } from "@reduxjs/toolkit/react";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import type { IUserListItem, TypeOfList } from "@/models/IUserList";
-import type { IAnimeResult } from "@consumet/extensions";
+import { createSlice } from '@reduxjs/toolkit/react';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { IUserListItem, TypeOfList } from '@/models/IUserList';
+import type { IAnimeResult } from '@consumet/extensions';
 
 interface IUserState {
     isShownSidebar: boolean;
-    userList: IUserListItem[]
+    userList: IUserListItem[];
 }
 
 interface PayloadActionList<A, T> {
     payload: {
-        animeInfo: A,
-        type: T
-    }
+        animeInfo: A;
+        type: T;
+    };
 }
 
 interface PayloadActionFavorite<A, T> {
     payload: {
-        animeInfo: A,
-        isFavorite: T
-    }
+        animeInfo: A;
+        isFavorite: T;
+    };
 }
 
 const initialState: IUserState = {
     isShownSidebar: false,
     userList: [
-        {name: "planning", list: []},
-        {name: "watching", list: []},
-        {name: "complete", list: []},
-        {name: "favorite", list: []}
-    ]
+        { name: 'planning', list: [] },
+        { name: 'watching', list: [] },
+        { name: 'complete', list: [] },
+        { name: 'favorite', list: [] },
+    ],
 };
 
 export const userSlice = createSlice({
-    name: "user",
+    name: 'user',
     initialState,
     reducers: {
         setIsShownSidebar: (state, action: PayloadAction<boolean>) => {
             state.isShownSidebar = action.payload;
         },
-        addOneToList: (state, action: PayloadActionList<IAnimeResult, TypeOfList>) => {
-            const {animeInfo, type} = action.payload;
+        addOneToList: (
+            state,
+            action: PayloadActionList<IAnimeResult, TypeOfList>
+        ) => {
+            const { animeInfo, type } = action.payload;
             state.userList = state.userList.map((item) => {
                 if (item.name === type) {
-                    if (item.list.some(item => item.id === animeInfo.id)) {
+                    if (item.list.some((item) => item.id === animeInfo.id)) {
                         return item;
                     } else {
                         item.list.push(animeInfo);
                     }
                 }
                 return item;
-            })
+            });
         },
-        setFavorite: (state, action: PayloadActionFavorite<IAnimeResult, boolean>) => {
-            const {animeInfo, isFavorite} = action.payload;
+        setFavorite: (
+            state,
+            action: PayloadActionFavorite<IAnimeResult, boolean>
+        ) => {
+            const { animeInfo, isFavorite } = action.payload;
             if (isFavorite) {
                 state.userList = state.userList.map((item) => {
-                    if (item.name === "favorite") {
+                    if (item.name === 'favorite') {
                         if (item.list.includes(animeInfo)) {
                             return item;
                         } else {
@@ -64,16 +70,21 @@ export const userSlice = createSlice({
                         }
                     }
                     return item;
-                })
+                });
             } else {
                 state.userList = state.userList.map((item) => {
-                    if (item.name === "favorite") {
-                        return {...item, list: item.list.filter(item => item.id !== animeInfo.id)}
+                    if (item.name === 'favorite') {
+                        return {
+                            ...item,
+                            list: item.list.filter(
+                                (item) => item.id !== animeInfo.id
+                            ),
+                        };
                     }
                     return item;
-                })
+                });
             }
-        }
+        },
     },
 });
 

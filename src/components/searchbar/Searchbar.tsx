@@ -1,19 +1,19 @@
-"use client";
-import type { ChangeEvent } from "react";
-import { useState } from "react";
+'use client';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 
-import "./searchbar.scss";
+import './searchbar.scss';
 
 interface ISearchbarProps {
     onSearch: (value: string) => void;
 }
 
 const Searchbar: React.FC<ISearchbarProps> = ({ onSearch }) => {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState('');
 
     const onUseSearch = () => {
         onSearch(input);
-        setInput("");
+        setInput('');
     };
 
     return (

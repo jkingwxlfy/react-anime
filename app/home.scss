@@ -1,27 +1,27 @@
 .home {
-    width: calc(100% - 90px);
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     transition: width 500ms;
+    width: calc(100% - 90px);
+    min-height: 100vh;
 
     &__title {
+        display: flex;
         position: relative;
-        width: 100%;
-        display: flex; 
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         padding: 25px 0;
+        width: 100%;
 
         a {
             position: absolute;
             right: 8%;
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #fff;
             opacity: 0.7;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5rem;
 
             &:hover {
                 color: #4effee;
